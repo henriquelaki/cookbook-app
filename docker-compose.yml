@@ -12,7 +12,8 @@ services:
       - "15432:5432"
     volumes:
       - postgres-dev-database:/var/lib/postgresql/data
-      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    networks:
+      - 'postgres-cookbook-network'
 
 
   teste-pgadmin-compose:
@@ -24,9 +25,14 @@ services:
       - "16543:80"
     depends_on:
       - database
-    links:
-      - "database:database"
+    networks:
+      - 'postgres-cookbook-network'
 
 
 volumes:
   postgres-dev-database:
+
+networks:
+  postgres-cookbook-network:
+    driver: 'bridge'
+
