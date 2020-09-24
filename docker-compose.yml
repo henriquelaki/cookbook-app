@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  database:
+    image: postgres
+    restart: always
+    env_file:
+      - database.env
+    environment:
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres-dev-database:/var/lib/postgresql/data
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+
+
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "henrique.laki@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2020!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - database
+    links:
+      - "database:database"
+
+
+volumes:
+  postgres-dev-database:
