@@ -115,3 +115,4 @@ Only for Development only
 !**/migrations/__init__.py.*
 *~
 media/fotos/24/09/2020
+.pep8
