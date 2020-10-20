@@ -1,4 +1,7 @@
 # cookbook-app
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0ab4fa39c474c5a9a038499c0e3e46d)](https://app.codacy.com/manual/henrique.laki/cookbook-app?utm_source=github.com&utm_medium=referral&utm_content=henriquelaki/cookbook-app&utm_campaign=Badge_Grade_Settings)
+
 ## Django Framework Studies (pt-BR)
 
 This project is part of my Djando Framework Study.
